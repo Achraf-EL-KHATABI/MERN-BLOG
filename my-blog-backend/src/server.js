@@ -1,9 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import path from 'path';
 import Article from './articleShema';
 const uri = "mongodb+srv://user_article:password_article@articles.6biy6.mongodb.net/my-blog?retryWrites=true&w=majority";
 const app = express();
+
+app.use(express.static(path.join(__dirname , '/build') ));
 
 mongoose.connect(uri,
     {
@@ -55,6 +58,9 @@ app.post('/api/articles/:name/add-comment', async (req, res) => {
     }
 });
 
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname , '/build/index.html'));
+});
 
 app.listen(8000, () => console.log('Listening on port 8000'));
 
