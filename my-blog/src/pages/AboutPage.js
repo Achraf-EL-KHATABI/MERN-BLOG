@@ -1,0 +1,19 @@
+import React from 'react';
+
+const AboutPage = () => (
+    <React.Fragment>
+        <h1>About me!</h1>
+        <p>
+            Text ....
+            Text ....
+            Text ....
+    </p>
+        <p>
+            Details ....
+            Details ....
+            Details ....
+    </p>
+    </React.Fragment>
+);
+
+export default AboutPage;
